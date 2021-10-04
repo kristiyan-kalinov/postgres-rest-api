@@ -4,6 +4,8 @@ services:
     image: 'kkalinov/postgres-rest-api:2.0'
     build:
       context: .
+    ports:
+      - "8080:8080"
     container_name: 'api'
     depends_on:
       db:
