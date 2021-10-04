@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
 FROM adoptopenjdk:11-jre-hotspot
-ARG JAR_FILE=*.jar
-COPY ${JAR_FILE} application.jar
+ADD target/postgres-rest-api.jar application.jar
 ENTRYPOINT ["java", "-jar", "application.jar"]
+EXPOSE 8080
