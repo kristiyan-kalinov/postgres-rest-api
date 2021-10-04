@@ -1,0 +1,18 @@
+version: '1.0'
+services:
+  api:
+    image: 'kkalinov/postgres-rest-api:1.0'
+    container_name: 'api'
+    depends_on:
+      -db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+    
+  db:
+    image: 'postgres'
+    container_name: 'db'
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=compose-postgres
